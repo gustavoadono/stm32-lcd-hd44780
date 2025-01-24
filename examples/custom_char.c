@@ -48,23 +48,27 @@ const uint8_t speaker_pattern[8] = {
     0b00000
 };
 
-int main(void) {
+int main(void)
+{
     HAL_Init();
-    
-    if (lcd_init(&config) != LCD_SUCCESS) {
+
+    if (lcd_init(&config) != LCD_SUCCESS)
+    {
         Error_Handler();
     }
-    
+
     lcd_create_char(0, bell_pattern);
     lcd_create_char(1, speaker_pattern);
-    
+
     lcd_set_cursor_xy(0, 0);
     lcd_write_string("Alarm ");
     lcd_write_char(0);
-    
+
     lcd_set_cursor_xy(1, 0);
     lcd_write_string("Volume ");
     lcd_write_char(1);
-    
-    while(1) {}
+
+    while (1)
+    {
+    }
 }

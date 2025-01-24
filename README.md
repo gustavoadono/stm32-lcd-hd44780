@@ -97,7 +97,8 @@ int main(void) {
     };
 
     // Initialize LCD
-    if (lcd_init(&config) != LCD_SUCCESS) {
+    if (lcd_init(&config) != LCD_SUCCESS) 
+    {
         Error_Handler();
     }
 
@@ -106,7 +107,8 @@ int main(void) {
     lcd_set_cursor(&pos);
     lcd_write_string("Hello, World!");
 
-    while (1) {
+    while (1) 
+    {
         // Main loop
     }
 }
@@ -170,9 +172,9 @@ Additional error codes are defined in `hd44780defs.h`.
 ## Example Codes
 Located in /examples directory:
 
-- static_message.c: Basic text display
-- scrolling_message.c: Dynamic text rendering
-- custom_character.c: Creating custom characters
+- `static_message.c`: Basic text display
+- `scrolling_message.c`: Dynamic text rendering
+- `custom_character.c`: Creating custom characters
 
 
 ## Technical Notes

@@ -70,33 +70,36 @@ const uint8_t battery_full[8] = {
     0b11111
 };
 
-int main(void) {
+int main(void)
+{
     HAL_Init();
-    
-    if (lcd_init(&config) != LCD_SUCCESS) {
+
+    if (lcd_init(&config) != LCD_SUCCESS)
+    {
         Error_Handler();
     }
-    
-    while(1) {
+
+    while (1)
+    {
         // Create battery stages
         lcd_create_char(0, battery_empty);
         lcd_set_cursor_xy(0, 0);
         lcd_write_string("Charging: ");
         lcd_write_char(0);
         HAL_Delay(1000);
-        
+
         lcd_create_char(0, battery_quarter);
         lcd_set_cursor_xy(0, 0);
         lcd_write_string("Charging: ");
         lcd_write_char(0);
         HAL_Delay(1000);
-        
+
         lcd_create_char(0, battery_half);
         lcd_set_cursor_xy(0, 0);
         lcd_write_string("Charging: ");
         lcd_write_char(0);
         HAL_Delay(1000);
-        
+
         lcd_create_char(0, battery_full);
         lcd_set_cursor_xy(0, 0);
         lcd_write_string("Charged!  ");

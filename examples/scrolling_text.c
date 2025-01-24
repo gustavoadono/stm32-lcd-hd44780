@@ -28,37 +28,41 @@ struct lcd_config config = {
     }
 };
 
-const char* scroll_message = "STM32C0 LCD Driver - Scrolling Text Demo  ";
+const char *scroll_message = "STM32C0 LCD Driver - Scrolling Text Demo  ";
 
-int main(void) {
+int main(void)
+{
     // Initialize peripherals
     HAL_Init();
-    
+
     // Initialize LCD with predefined configuration
-    if (lcd_init(&config) != LCD_SUCCESS) {
+    if (lcd_init(&config) != LCD_SUCCESS)
+    {
         Error_Handler();
     }
-    
+
     size_t message_length = strlen(scroll_message);
     size_t scroll_pos = 0;
-    
-    while(1) {
+
+    while (1)
+    {
         // Clear display
         lcd_clear();
-        
+
         // First line: scrolling text
         lcd_set_cursor_xy(0, 0);
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < 16; i++)
+        {
             lcd_write_char(scroll_message[(scroll_pos + i) % message_length]);
         }
-        
+
         // Second line: static message
         lcd_set_cursor_xy(1, 0);
         lcd_write_string("NUCLEO-C031C6");
-        
+
         // Update scroll position
         scroll_pos = (scroll_pos + 1) % message_length;
-        
+
         // Delay to control scroll speed
         HAL_Delay(300);
     }

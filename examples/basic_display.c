@@ -27,24 +27,27 @@ struct lcd_config config = {
     }
 };
 
-int main(void) {
+int main(void)
+{
     // Initialize peripherals
     HAL_Init();
-    
+
     // Initialize LCD with predefined configuration
-    if (lcd_init(&config) != LCD_SUCCESS) {
+    if (lcd_init(&config) != LCD_SUCCESS)
+    {
         // Handle initialization error
         Error_Handler();
     }
-    
+
     // Display messages on different lines
     lcd_set_cursor_xy(0, 0);
     lcd_write_string("NUCLEO-C031C6");
-    
+
     lcd_set_cursor_xy(1, 0);
     lcd_write_string("LCD Test");
-    
-    while(1) {
+
+    while (1)
+    {
         // Main application loop
     }
 }
